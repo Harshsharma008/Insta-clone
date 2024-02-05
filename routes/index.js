@@ -129,13 +129,13 @@ router.get('/search/:user', isLoggedIn, async function(req, res) {
 });
 
 router.get('/edit', isLoggedIn, async function(req, res) {
-  const user = await userModel.findOne({username: req.session.passport.user});
+  const user = await userModel.findOne({username: req.session.passport.user});// this shows the logged in user detail in the edit
   res.render('edit', {footer: true, user});
 });
 
 router.get('/upload', isLoggedIn, async function(req, res) {
   let user = await userModel
-  .findOne({username: req.session.passport.user})
+  .findOne({username: req.session.passport.user}) // vo banda mil jayga jo logged in h
   res.render('upload', {footer: true, user});
 });
 

@@ -14,12 +14,15 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+ 
+//session code for loggin
 app.use(expressSession({
   resave: false,
   saveUninitialized: false,
   secret: "heyheyehhdd"
 }));
+
+// passport use for creating login register and protected routes
 app.use(passport.initialize());
 app.use(passport.session());
 passport.serializeUser(usersRouter.serializeUser());
